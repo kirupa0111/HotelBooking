@@ -11,6 +11,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import React from "react";
 
 const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
