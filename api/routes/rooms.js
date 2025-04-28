@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  updateRoomAvailability,
   createRoom,
   updateRoom,
   deleteRoom,
@@ -12,8 +13,10 @@ const router = express.Router();
 
 //CREAT
 router.post("/:hotelid", verifyAdmin, createRoom);
-//UPDATE USER
-router.put("/:id", verifyAdmin, updateRoom);
+//UPDATE Room
+router.put("/:id", updateRoom);
+
+router.put("/availability/:id", updateRoomAvailability);
 
 //DELETE ROOM
 router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);

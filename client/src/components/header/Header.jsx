@@ -13,11 +13,12 @@ import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
+  const user = JSON.parse(localStorage.getItem("user"));
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -35,7 +36,6 @@ const Header = ({ type }) => {
   });
 
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -50,7 +50,7 @@ const Header = ({ type }) => {
 
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
-    navigate("/hotels", { state: { destination, dates, options } });
+    navigate("/hotelslist", { state: { destination, dates, options } });
   };
 
   return (
@@ -89,9 +89,19 @@ const Header = ({ type }) => {
             </h1>
             <p className="headerDesc">
               Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              more with a free Hotelbooking account
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && (
+              <button className="headerBtn">
+                <Link to="/login" style={{ color: "white" }}>
+                  Sign in
+                </Link>
+                /{" "}
+                <Link to="/reg" style={{ color: "white" }}>
+                  Register
+                </Link>
+              </button>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -196,6 +206,7 @@ const Header = ({ type }) => {
                   </div>
                 )}
               </div>
+
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
                   Search

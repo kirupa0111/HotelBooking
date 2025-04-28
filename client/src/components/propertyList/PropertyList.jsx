@@ -8,6 +8,18 @@ const PropertyList = () => {
     "https://cdn.pixabay.com/photo/2024/05/20/11/11/ai-generated-8774912_1280.jpg",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8yD-q1NsyeqEBotrL5edsQ2Y3mfSybAgCbuVlUw5UsHhC75qP9Z7SwpjwGa-P0ewE3RA&usqp=CAU",
     "https://image-tc.galaxy.tf/wijpeg-183gqhua9y322yvbmwwbd3xy5/suha-creek-hotel-apartments_standard.jpg?width=280&height=280&crop=106%2C0%2C1708%2C1281",
+    // {
+    //   ImageUrl: data.photos[0],
+    //   countOfProperty: data.hotels,
+    // },
+    // {
+    //   ImageUrl: data.photos[0],
+    //   countOfProperty: data.villas,
+    // },
+    // {
+    //   ImageUrl: data.photos[0],
+    //   countOfProperty: data.cabins,
+    // },
   ];
   return (
     <div className="pList">
